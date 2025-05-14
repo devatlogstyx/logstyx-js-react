@@ -36,6 +36,8 @@ const logger = useLogstyx({
   captureUnhandledRejections: true 
 });
 
+const { ErrorBoundary, Trackable} = logger
+
 // Custom fallback UI for ErrorBoundary (Optional)
 function CustomFallbackUI({ error, errorInfo }) {
   return (
@@ -62,6 +64,22 @@ const App = () => (
   <button>subscribe now!</button>
 </Trackable>
 
+
+// You can also dorectly send an info log
+logstyx.info({ message: "This is an info log!" });
+
+// a warning log
+logstyx.warning({ message: "This is a warning log!" });
+
+// an error log
+logstyx.error({ message: "This is an error log!" });
+
+// a error log
+logstyx.critical({ message: "This is an critical log!" });
+
+
+// a custom level log
+logstyx.send("custom",{ message: "This is an error log!" });
 
 ```
 
