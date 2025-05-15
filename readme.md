@@ -66,20 +66,20 @@ const App = () => (
 
 
 // You can also dorectly send an info log
-logstyx.info({ message: "This is an info log!" });
+logger.info({ message: "This is an info log!" });
 
 // a warning log
-logstyx.warning({ message: "This is a warning log!" });
+logger.warning({ message: "This is a warning log!" });
 
 // an error log
-logstyx.error({ message: "This is an error log!" });
+logger.error({ message: "This is an error log!" });
 
 // a error log
-logstyx.critical({ message: "This is an critical log!" });
+logger.critical({ message: "This is an critical log!" });
 
 
 // a custom level log
-logstyx.send("custom",{ message: "This is an error log!" });
+logger.send("custom",{ message: "This is an error log!" });
 
 ```
 
