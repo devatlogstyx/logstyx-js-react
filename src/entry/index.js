@@ -3,11 +3,13 @@ import Trackable from "../wrapper/trackable.js";
 import { getDeviceParams } from "../lib/react.js";
 import useLogstyx from "logstyx-js-core"
 import ErrorBoundary from "../wrapper/error.boundary.js";
+import { sendFn } from "../helper/function.js";
 
 export default (options = {}) => {
     const defaultDevice = getDeviceParams()
     const instance = useLogstyx({
         ...options,
+        sendfunc: sendFn,
         device: options.device || defaultDevice,
     });
 

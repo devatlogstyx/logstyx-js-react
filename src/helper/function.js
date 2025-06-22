@@ -1,5 +1,9 @@
 //@ts-check
 
+exports.sendFn = (endpoint, { body, }) => {
+    return navigator.sendBeacon(endpoint, body);
+}
+
 exports.safeParse = (input) => {
     try {
         return input ? JSON.parse(input) : {};
