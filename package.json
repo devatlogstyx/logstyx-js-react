@@ -10,6 +10,7 @@
   "module": "./dist/logstyx-js-react.js",
   "scripts": {
     "build": "node esbuild.config.js",
+    "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "dev@logstyx.com",
@@ -21,6 +22,6 @@
     "react": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "logstyx-js-core": "github:devatlogstyx/logstyx-js-core#release"
+    "logstyx-js-core": "github:devatlogstyx/logstyx-js-core"
   }
 }
