@@ -17,7 +17,7 @@ export default (options = {}) => {
         try {
             if (typeof window !== "undefined") {
                 window.onerror = (msg, source, line, col, err) => {
-                    instance.send("error", {
+                    instance.error({
                         title: err?.name || "Unknown Error",
                         message: msg || err?.message,
                         stack: err?.stack || null
@@ -35,7 +35,7 @@ export default (options = {}) => {
                 const message = reason instanceof Error ? reason.message : String(reason);
                 const stack = reason instanceof Error ? reason.stack : undefined;
                 const title = reason instanceof Error ? reason.name : "Unhandled Rejection";
-                instance.send("error", { title, message, stack });
+                instance.error({ title, message, stack });
             };
 
             window.onunhandledrejection = (e) => handler(e.reason);
