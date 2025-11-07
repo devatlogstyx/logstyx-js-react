@@ -14,7 +14,7 @@ logstyx-js-react is a JavaScript SDK designed for integrating with React applica
 To install the package, you can use npm:
 
 ```bash
-npm install github:devatlogstyx/logstyx-js-react
+npm install github:devatlogstyx/logstyx-js-react#release
 ```
 
 Make sure to also have React installed:
