@@ -35,6 +35,6 @@ export const getDeviceParams = () => {
             screen,
         };
     } catch {
-        return { type: "node" };
+        return { type: "browser" };
     }
 }     
