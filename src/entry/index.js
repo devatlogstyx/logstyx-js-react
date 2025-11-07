@@ -9,7 +9,7 @@ export default (options = {}) => {
     const defaultDevice = getDeviceParams()
     const instance = useLogstyx({
         ...options,
-        sendfunc: sendFn,
+        sendFunc: sendFn,
         device: options.device || defaultDevice,
     });
 
