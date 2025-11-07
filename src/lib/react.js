@@ -18,11 +18,23 @@ export const getBrowserFromUserAgent = (ua) => {
 }
 
 export const getDeviceParams = () => {
-    return {
-        "type": "browser",
-        origin: window?.location?.origin,
-        os: getOSFromUserAgent(navigator?.userAgent),
-        browser: getBrowserFromUserAgent(navigator?.userAgent),
-        screen: `${window?.screen?.width}x${window?.screen?.height}`
+    try {
+        if (typeof window === "undefined") {
+            return { type: "server" };
+        }
+
+        const origin = typeof window !== "undefined" && window.location ? window.location.origin : undefined;
+        const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
+        const screen = typeof window !== "undefined" && window.screen ? `${window.screen.width}x${window.screen.height}` : undefined;
+
+        return {
+            type: "browser",
+            origin,
+            os: getOSFromUserAgent(ua),
+            browser: getBrowserFromUserAgent(ua),
+            screen,
+        };
+    } catch {
+        return { type: "node" };
     }
-}
+}     

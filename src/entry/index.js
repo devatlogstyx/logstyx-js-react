@@ -38,7 +38,9 @@ export default (options = {}) => {
                 instance.error({ title, message, stack });
             };
 
-            window.onunhandledrejection = (e) => handler(e.reason);
+            if (typeof window !== "undefined") {
+                window.onunhandledrejection = (e) => handler(e.reason);
+            }
         } catch (e) {
             console.error(e)
         }
