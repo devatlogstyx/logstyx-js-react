@@ -5,6 +5,7 @@ esbuild.build({
   entryPoints: [path.resolve(".", "src", "entry", "index.js")],
   outfile: "dist/logstyx-js-react.js",
   platform: "browser",
+  format: "esm",
   jsx: 'automatic',
   bundle: true,
   minify: true,
