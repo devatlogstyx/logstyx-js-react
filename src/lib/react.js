@@ -28,13 +28,13 @@ export const getDeviceParams = () => {
         const screen = typeof window !== "undefined" && window.screen ? `${window.screen.width}x${window.screen.height}` : undefined;
 
         return {
-            type: "browser",
+            type: "react",
             origin,
             os: getOSFromUserAgent(ua),
             browser: getBrowserFromUserAgent(ua),
             screen,
         };
     } catch {
-        return { type: "browser" };
+        return { type: "react" };
     }
 }     
