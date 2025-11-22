@@ -1,6 +1,6 @@
 {
   "name": "logstyx-js-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "logstyx sdk for react",
   "exports": {
     ".": "./dist/logstyx-js-react.js"
