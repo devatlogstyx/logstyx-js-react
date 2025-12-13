@@ -1,7 +1,8 @@
 //@ts-check
 
 export const sendFn = (endpoint, { body }) => {
-  return navigator.sendBeacon(endpoint, body);
+  const blob = new Blob([body], { type: 'application/json' });
+  return navigator.sendBeacon(endpoint, blob);
 };
 
 export const safeParse = (input) => {
