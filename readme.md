@@ -32,8 +32,10 @@ import useLogstyx from 'logstyx-js-react';
 
 const logger = useLogstyx({ 
   projectId: "your_logstyx_project_id",  // Your LogStyx project ID
-  captureUncaught: true, 
-  captureUnhandledRejections: true 
+  // Automatic error capture
+  captureUncaught: true,                // Capture uncaught exceptions
+  captureUnhandledRejections: true,     // Capture unhandled promise rejections
+  persistentSession:true, // automatically add sessionId on context that persist over the visiting session
 });
 
 const { ErrorBoundary, Trackable} = logger
@@ -87,6 +89,7 @@ logger.send("custom",{ message: "This is an error log!" });
 - `projectId`: The LogStyx project ID associated with your project.
 - `captureUncaught`: Capture uncaught errors globally.
 - `captureUnhandledRejections`: Capture unhandled promise rejections.
+- `persistentSession`: Automatically add sessionId on context that persist over the visiting session
 
 ## Contribution
 

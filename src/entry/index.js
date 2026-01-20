@@ -3,7 +3,7 @@ import Trackable from "../wrapper/trackable.js";
 import { getDeviceParams } from "../lib/react.js";
 import useLogstyx from "logstyx-js-core"
 import ErrorBoundary from "../wrapper/error.boundary.js";
-import { sendFn } from "../helper/function.js";
+import { getOrSetSessionId, sendFn } from "../helper/function.js";
 
 export default (options = {}) => {
     const defaultDevice = getDeviceParams()
@@ -12,6 +12,15 @@ export default (options = {}) => {
         sendFunc: sendFn,
         device: options.device || defaultDevice,
     });
+
+
+    if (options?.persistentSession === true) {
+        const sessionId = getOrSetSessionId()
+
+        instance.setContext({
+            sessionId
+        })
+    }
 
     if (options?.captureUncaught === true) {
         try {
