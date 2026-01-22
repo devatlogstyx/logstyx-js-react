@@ -23,6 +23,9 @@ export default (options = {}) => {
         }
     };
 
+    // CALL IMMEDIATELY: to populate during the first load
+    updateNavigationContext()
+
     if (typeof window !== "undefined") {
         window.addEventListener("popstate", updateNavigationContext);
 
