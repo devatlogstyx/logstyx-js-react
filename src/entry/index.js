@@ -13,6 +13,26 @@ export default (options = {}) => {
         device: options.device || defaultDevice,
     });
 
+    const updateNavigationContext = () => {
+        if (typeof window !== "undefined") {
+            instance.setContext({
+                url: window.location.href,
+                pageTitle: document.title,
+                referrer: document.referrer
+            });
+        }
+    };
+
+    if (typeof window !== "undefined") {
+        window.addEventListener("popstate", updateNavigationContext);
+
+        // Optional: Patch pushState to catch programmatic navigation in SPAs
+        const originalPushState = window.history.pushState;
+        window.history.pushState = function (...args) {
+            originalPushState.apply(this, args);
+            updateNavigationContext();
+        };
+    }
 
     if (options?.persistentSession === true) {
         const sessionId = getOrSetSessionId()
