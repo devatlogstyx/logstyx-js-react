@@ -1,0 +1,26 @@
+{
+  "name": "logstyx-js-react",
+  "version": "1.0.7",
+  "description": "logstyx sdk for react",
+  "exports": {
+    ".": "./dist/logstyx-js-react.js"
+  },
+  "type": "module",
+  "main": "./dist/logstyx-js-react.js",
+  "module": "./dist/logstyx-js-react.js",
+  "scripts": {
+    "build": "node esbuild.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dev@logstyx.com",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.25.4"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "logstyx-js-core": "github:devatlogstyx/logstyx-js-core#release"
+  }
+}
